@@ -91,7 +91,13 @@ export const CalculoPrecio = () => {
                     </div>
                 </form>
 
-                {total ? <p>El total: {total} </p> : <p>Ingrese datos para calcular total</p>}
+                {total 
+                ? (<p>
+                    <span>El subtotal: {(total/1.18).toFixed(2)} </span>
+                    <span>IGV : {((total/1.18)*0.18).toFixed(2)}</span>
+                    <span>El total: {total} </span>
+                </p>)    
+                : <p>Ingrese datos para calcular total</p>}
                 <div className="d-flex justify-content-center gap-3">
                     <button disabled={!precio || !cantidad || !nombre} onClick={calculoTotal} className="btn btn-primary">Calcular total</button>
                     <button onClick={handleClick} className="btn btn-primary">Resetear Valores</button>
